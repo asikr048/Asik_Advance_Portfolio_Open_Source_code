@@ -165,6 +165,46 @@ body {
   background: var(--smoky-black);
 }
 
+.signin-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  padding: 12px 32px;
+  background: var(--bg-gradient-yellow-1);
+  color: var(--smoky-black);
+  border: 1px solid var(--orange-yellow-crayola);
+  border-radius: 8px;
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  cursor: pointer;
+  transition: all var(--transition-1);
+  opacity: 1;
+  visibility: visible;
+  box-shadow: var(--shadow-2);
+}
+
+.signin-btn::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-yellow-2);
+  border-radius: inherit;
+  z-index: -1;
+  transition: var(--transition-1);
+}
+
+.signin-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-3);
+}
+
+.signin-btn.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 
 
 
@@ -2601,6 +2641,25 @@ textarea.form-input::-webkit-resizer {
 
 .ai-send-btn ion-icon {
   font-size: 18px;
+}
+
+/* Responsive Sign In Button */
+@media (max-width: 768px) {
+  .signin-btn {
+    top: 15px;
+    right: 15px;
+    padding: 10px 24px;
+    font-size: var(--fs-7);
+  }
+}
+
+@media (max-width: 480px) {
+  .signin-btn {
+    top: 10px;
+    right: 10px;
+    padding: 8px 20px;
+    font-size: var(--fs-8);
+  }
 }
 
 /* Mobile Responsiveness */

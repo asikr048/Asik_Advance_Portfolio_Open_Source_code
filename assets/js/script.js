@@ -452,3 +452,19 @@ document.addEventListener('DOMContentLoaded', () => {
     aiChatWidget.init();
   }, 500);
 });
+
+// Sign In Button scroll behavior
+const signinBtn = document.getElementById('signin-btn');
+let lastScrollTop = 0;
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (scrollTop > lastScrollTop && scrollTop > 50) {
+    signinBtn.classList.add('hidden');
+  } else {
+    signinBtn.classList.remove('hidden');
+  }
+
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+}, false);
