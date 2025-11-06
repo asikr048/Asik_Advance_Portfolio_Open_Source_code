@@ -145,17 +145,27 @@ for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
 
     // =================================================================
-    // FIX: Changed inner loop variable from 'i' to 'j'
-    // and fixed logic in the 'else' block
+    // FINAL FIX: This logic correctly deactivates all other links/pages
+    // before activating the new one.
     // =================================================================
+
+    const targetPage = this.innerHTML.toLowerCase();
+
     for (let j = 0; j < pages.length; j++) {
-      if (this.innerHTML.toLowerCase() === pages[j].dataset.page) {
+      // Remove 'active' from all pages and all navigation links
+      pages[j].classList.remove("active");
+      navigationLinks[j].classList.remove("active");
+    }
+
+    // Add 'active' to the clicked link
+    this.classList.add("active");
+
+    // Add 'active' to the corresponding page
+    for (let j = 0; j < pages.length; j++) {
+      if (pages[j].dataset.page === targetPage) {
         pages[j].classList.add("active");
-        navigationLinks[i].classList.add("active");
         window.scrollTo(0, 0);
-      } else {
-        pages[j].classList.remove("active");
-        navigationLinks[j].classList.remove("active");
+        break; // Stop looping once we find the matching page
       }
     }
 
