@@ -495,6 +495,6 @@ if (signinBtn) {
   signinBtn.addEventListener('click', function () {
     // You can change this action to whatever you want.
     // e.g., window.location.href = '/signin.html';
-    alert('Sign In button clicked!');
+    alert('Sign In button clicked !');
   });
 }
