@@ -163,6 +163,10 @@ for (let i = 0; i < navigationLinks.length; i++) {
 // AI Chat Widget Functionality
 const aiChatWidget = {
   // Configuration
+  // =================================================================
+  // BUG: This URL is an expired test link.
+  // FIX: You must replace this with your own live server URL.
+  // =================================================================
   webhookUrl: 'https://detractive-nonsectionally-salma.ngrok-free.dev/webhook/portfolio-to-response',
 
   // DOM Elements
@@ -468,3 +472,15 @@ window.addEventListener('scroll', () => {
 
   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 }, false);
+
+
+// =================================================================
+// SCRIPT.JS FIX: Added click listener for the Sign In button
+// =================================================================
+if (signinBtn) {
+  signinBtn.addEventListener('click', function () {
+    // You can change this action to whatever you want.
+    // e.g., window.location.href = '/signin.html';
+    alert('Sign In button clicked!');
+  });
+}
